@@ -148,3 +148,7 @@ class Choice(models.Model):
 class Submission(models.Model):
    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
    chocies = models.ManyToManyField(Choice)
+   
+def __str__(self):
+        return f"Submission posted on {self.date_submitted} at {self.time} \
+                for {self.enrollment}"
