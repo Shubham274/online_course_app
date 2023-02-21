@@ -134,7 +134,8 @@ def submit(request, course_id):
     # Adding the selected choices to the Submission table (model)
     for choice_id in submitted_answers:
         choice_obj = Choice.objects.get(id=choice_id)
-        submission.choices.add(choice_obj)
+        submission["choices"]=choice_obj
+        # submission.choices.add(choice_obj)
     submission.save()  # saving the changes
     print(f"Submitted exam for user {user} in course {course_id}")
 
